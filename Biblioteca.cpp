@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <algorithm>
 #include <time.h>
@@ -5,15 +6,15 @@
 using namespace std;
 
 string libros[5][3];
-string autor[5][3];
+string autores[5][3];
 
 void cargarLibros() {
     // Arreglo con categoria y descripcion
-	libros[0][0] = "Algoritmos"; libros[0][1] = "Algoritmos y Programacion (Guia para docentes)"; 		autor[0][2] = "Lewis Matteu";
-	libros[1][0] = "Algoritmos"; libros[1][1] = "Apuntes de Algoritmos y Estructuras de Datos";			autor[1][2]	= "Jon Bernet";
-	libros[2][0] = "Algoritmos"; libros[2][1] = "Breves Notas sobre Analisis de Algoritmos";			autor[2][2] = "Steve Clark";
-	libros[3][0] = "Algoritmos"; libros[3][1] = "Fundamentos de Informatica y Programacion";			autor[3][2] = "Charls Quentoon";
-	libros[4][0] = "Algoritmos"; libros[4][1] = "Temas selectos de estructuras de datos";				autor[4][2] = "Marc Tommas";
+	libros[0][0] = "Algoritmos"; libros[0][1] = "Algoritmos y Programacion (Guia para docentes)"; 		autores[0][2] = "Lewis Matteu";
+	libros[1][0] = "Algoritmos"; libros[1][1] = "Apuntes de Algoritmos y Estructuras de Datos";			autores[1][2]	= "Jon Bernet";
+	libros[2][0] = "Algoritmos"; libros[2][1] = "Breves Notas sobre Analisis de Algoritmos";			autores[2][2] = "Steve Clark";
+	libros[3][0] = "Algoritmos"; libros[3][1] = "Fundamentos de Informatica y Programacion";			autores[3][2] = "Charls Quentoon";
+	libros[4][0] = "Algoritmos"; libros[4][1] = "Temas selectos de estructuras de datos";				autores[4][2] = "Marc Tommas";
 
 }
 
@@ -38,15 +39,17 @@ int main(int argc, char const *argv[])
         for (int i = 0; i < 5; i++)
         {
             string libro = libros[i][1];
+            string autor = autores[i][2];
+            string autorEnminuscula = autor;
             string libroEnminuscula = libro;
-            string autorEnnimuscula = autor;
-            // transformamos a minuscula los string buscar y libro
+            
+            // transformamos a minuscula los string buscar, libro y auttores
             transform(libroEnminuscula.begin(), libroEnminuscula.end(), libroEnminuscula.begin(), ::tolower);
-            transform(buscar.begin(), buscar.end(), buscar.begin(), ::tolower);
-			transform(autorEnnimuscula.begin(), autorEnnimuscula.end(), autorEnnimuscula.begin(), ::tolower);
+			transform(autorEnminuscula.begin(), autorEnminuscula.end(), autorEnminuscula.begin(), ::tolower);
+			transform(buscar.begin(), buscar.end(), buscar.begin(), ::tolower);
 			
             if (libroEnminuscula.find(buscar) != string::npos) {
-                cout << "Libro encontrado: " << libro << autor << endl;
+                cout << "Libro encontrado: " << libro << " > " <<autor << endl;
 
                 cout << "Tambien te sugerimos estos libros: " << endl;
 
